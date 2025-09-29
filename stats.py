@@ -18,8 +18,15 @@ def count_characters(text):
     return dict_char_count
 
 
+def sort_dictionary(dictionary, char_count):
+    sorted_dicts = []
 
+    for char, char_count in dictionary.items():
+        sorted_dicts.append({"char": char, "num": char_count})
 
+    def _num_key(item):
+        return item["num"]
 
+    sorted_dicts.sort(key=_num_key, reverse=True)
 
-
+    return sorted_dicts
